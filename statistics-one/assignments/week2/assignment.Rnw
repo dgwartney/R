@@ -1,0 +1,95 @@
+\documentclass{article}
+\begin{document}
+\author{David Gwartney}
+\title{\Large{Statics One}\\Fall 2013\\Week 2 Assignment}
+%\subtitle{Week 2 Assignment}
+\maketitle
+\SweaveOpts{concordance=TRUE}
+\section*{Question \# 0: Read In Data Set}
+<<>>=
+library(psych)
+data <- read.delim("Stats1.13.HW.02.txt")
+@
+
+\section*{Question \# 1: How many rows of data are in the data file?}
+
+<<echo=TRUE>>=
+nrow(data)
+@
+
+\section*{Question \#2: What is the name of the dependent variable?}
+
+The dependent variable is \textit{SR} and is located 4th column.
+<<echo=TRUE>>=
+names(data)[4]
+@
+
+\section*{Question \#3: What is the mean of SR across all subjects?}
+<<echo=TRUE>>=
+round(mean(data$SR),2)
+@
+
+\section*{Question \#4: What is the variance of SR across all subjects?}
+<<echo=TRUE>>=
+round(var(data$SR),2)
+@
+
+\section*{Question \#5: What is the mean of SR for all subjects at pretest?}
+
+<<echo=TRUE>>=
+round(mean(data[data$time == "pre","SR"]),2)
+@
+
+\section*{Question \#6: What is the standard deviation of SR for all subjects at posttest?}
+
+<<echo=TRUE>>=
+round(sd(data[data$time == "post","SR"]),2)
+@
+
+\section*{Question \#7: What is the median of SR for all subjects at posttest?}
+
+<<echo=TRUE>>=
+round(median(data[data$time == "post","SR"]),2)
+@
+
+\section*{Question \#8: Which group has the highest mean at posttest?}
+
+<<echo=TRUE>>=
+post <- subset(data, data$time=="post")
+describeBy(post, post$condition)
+@
+
+\section*{Question \#9: Which one best approximates a normal distribution?}
+\begin{itemize}
+\item WM group at pretest
+\item WM group at postest
+\item PE group at pretest
+\item PE group at posttest
+\item DS group at pretest
+\item DS group at postest
+\end{itemize}
+
+<<figure=TRUE,echo=TRUE>>=
+pre <- subset(data, data$time=="pre")
+post <- subset(data, data$time=="post")
+pre.wm <- subset(pre, pre$condition=="WM")
+post.wm <- subset(post, post$condition=="WM")
+pre.pe <- subset(pre, pre$condition=="PE")
+post.pe <- subset(post, post$condition=="PE")
+pre.ds <- subset(pre, pre$condition=="DS")
+post.ds <- subset(post, post$condition=="DS")
+hist(pre.wm$SR)
+hist(post.wm$SR)
+hist(pre.pe$SR)
+hist(post.pe$SR)
+hist(pre.ds$SR)
+hist(post.ds$SR)
+@
+
+\section*{Question \#10: Which group showed the biggest gains in SR?}
+
+<<echo=TRUE>>=
+median(data[data$time == "post","SR"])
+@
+
+\end{document}
