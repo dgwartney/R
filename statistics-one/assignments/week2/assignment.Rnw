@@ -89,7 +89,15 @@ hist(post.ds$SR)
 \section*{Question \#10: Which group showed the biggest gains in SR?}
 
 <<echo=TRUE>>=
-median(data[data$time == "post","SR"])
+pre.wm = subset(pre, pre$condition=="WM")
+post.wm = subset(post, post$condition=="WM")
+pre.pe = subset(pre, pre$condition=="PE")
+post.pe = subset(post, post$condition=="PE")
+pre.ds = subset(pre, pre$condition=="DS")
+post.ds = subset(post, post$condition=="DS")
+mean(post.wm$SR)-mean(pre.wm$SR)
+mean(post.pe$SR)-mean(pre.pe$SR)
+mean(post.ds$SR)-mean(pre.ds$SR)
 @
 
 \end{document}
