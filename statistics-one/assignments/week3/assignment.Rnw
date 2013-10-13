@@ -1,0 +1,46 @@
+\documentclass{article}
+\begin{document}
+\author{David Gwartney}
+\title{\Large{Statics One}\\Fall 2013\\Week 3 Assignment}
+%\subtitle{Week 2 Assignment}
+\maketitle
+\SweaveOpts{concordance=TRUE}
+\newcounter{questionNumber}
+\setcounter{questionNumber}{0}
+\section*{Question \# \arabic{questionNumber}: Read In Data Set}
+<<>>=
+library(psych)
+data <- read.delim("Stats1.13.HW.03.txt")
+@
+\stepcounter{questionNumber}
+\section*{Question \# \arabic{questionNumber}: What is the correlation between S1 and S2 pre-training?}
+
+\stepcounter{questionNumber}
+\section*{Question \# \arabic{questionNumber}: What is the correlation between V1 and V2 pre-training?}
+
+\stepcounter{questionNumber}
+\section*{Question \# \arabic{questionNumber}: With respect to the measurement of two distinct constructs, spatial reasoning and verbal reasoning, the pattern of correlations pre-training reveals:}
+\begin{itemize}
+\item Convergent validity
+\item Divergent validity
+\item Both
+\item Neither
+\end{itemize}
+
+\stepcounter{questionNumber}
+\section*{Question \# \arabic{questionNumber}: Correlations from the control group could be used to estimate test/retest reliability. If so, which test is most reliable?}
+\begin{itemize}
+\item S1
+\item S2
+\item V1
+\item V2
+\end{itemize}
+
+\stepcounter{questionNumber}
+\section*{Question \# \arabic{questionNumber}: Does there appear to be a correlation between spatial reasoning before training and the amount of improvement in spatial reasoning?}
+\begin{itemize}
+\item Yes
+\item No
+\end{itemize}
+
+\end{document}
